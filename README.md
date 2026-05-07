@@ -32,33 +32,33 @@ python -m http.server -d slides 8080   # then visit http://localhost:8080
 ## Outline
 
 1. Title
-2. Agenda
-3. Section — *Meet Zava*
-4. The problem (customers, managers, security)
-5. What we're building
-6. Section — *Agents, briefly*
-7. An agent is a loop
-8. LangChain `create_agent` code
-9. Section — *Model Context Protocol*
-10. Why MCP
-11. The three primitives (tools / resources / prompts)
-12. Our FastMCP server (the 4 real tools from `mcp/app.py`)
-13. Section — *One database, two superpowers*
-14. Row Level Security
-15. pgvector
-16. Section — *Responses API*
-17. Built-in tools (image / code / web)
-18. Turning them on
-19. Section — *Putting it all together*
-20. Architecture diagram
-21. End-to-end question flow
-22. Section — *Demo*
-23. Run it locally
-24. The system prompt is half the agent
-25. Section — *Ship it*
-26. `azd up`
-27. Takeaways
-28. Thank you + resources
+2. Hi, I'm Marlene
+3. Agenda
+4. Section — *Why LangChain?*
+5. Azure × LangChain (tweet)
+6. What is LangChain?
+7. Who's building with LangChain (Fin, LinkedIn, Harvey)
+8. Section — *The app we'll build*
+9. Meet Zava
+10. Architecture
+11. Section — *What is an AI agent?*
+12. An agent is a loop
+13. The agentic loop diagram
+14. Section — *What is MCP?*
+15. MCP excalidraw
+16. Loop zoom — **Gather Context**
+17. Context · MCP & Postgres tools
+18. Security · Postgres RLS
+19. Context engineering — refine / summarize / validate
+20. LangChain code — gathering context
+21. Loop zoom — **Take Action**
+22. Tools you don't have to build (code, web, image)
+23. Built-in tools, in code
+24. `apply_step_config` — splitting prompts & tools per step
+25. Loop zoom — **Validate**
+26. Validation — traces, grounding, evals, monitoring
+27. Resources
+28. Thank you
 
 ## Editing
 
