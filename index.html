@@ -684,7 +684,94 @@
       </div>
     </div>
 
-    <!-- 17: Context — MCP + Postgres -->
+    <!-- 16a: Parts of MCP — Host -->
+    <div class="slide" data-slide="16">
+      <div class="badge mb-1">Architecture</div>
+      <h2>Parts of MCP</h2>
+      <div style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; margin-top: 2rem; max-width: 1100px;">
+        <!-- Host (active) -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--primary); background: oklch(0.52 0.24 290 / 0.06);">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.52 0.24 290)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="14" width="60" height="44" rx="6"/>
+            <path d="M22 30 h36 M22 40 h28 M22 50 h20"/>
+            <path d="M30 58 v8 M50 58 v8 M22 66 h36"/>
+          </svg>
+          <h3 style="color: var(--primary); margin-bottom: 0.4rem;">Host</h3>
+          <p class="small-text" style="margin: 0;">Our app &mdash; the Zava sales agent chat UI</p>
+        </div>
+        <!-- Client (placeholder) -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; opacity: 0.18; border: 2px dashed oklch(0.82 0.02 280);"></div>
+        <!-- Server (placeholder) -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; opacity: 0.18; border: 2px dashed oklch(0.82 0.02 280);"></div>
+      </div>
+    </div>
+
+    <!-- 16b: Parts of MCP — Host + Client -->
+    <div class="slide" data-slide="16">
+      <div class="badge mb-1">Architecture</div>
+      <h2>Parts of MCP</h2>
+      <div style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; margin-top: 2rem; max-width: 1100px;">
+        <!-- Host -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--primary); background: oklch(0.52 0.24 290 / 0.06);">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.52 0.24 290)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="14" width="60" height="44" rx="6"/>
+            <path d="M22 30 h36 M22 40 h28 M22 50 h20"/>
+            <path d="M30 58 v8 M50 58 v8 M22 66 h36"/>
+          </svg>
+          <h3 style="color: var(--primary); margin-bottom: 0.4rem;">Host</h3>
+          <p class="small-text" style="margin: 0;">Our app &mdash; the Zava sales agent chat UI</p>
+        </div>
+        <!-- Client (active) -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--secondary); background: oklch(0.68 0.16 340 / 0.06);">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.68 0.16 340)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 50 a14 14 0 1 1 4 -27 a18 18 0 0 1 34 6 a12 12 0 0 1 -2 23 z"/>
+            <path d="M40 30 l-6 12 h8 l-4 12" stroke="oklch(0.68 0.16 340)" fill="none"/>
+          </svg>
+          <h3 style="color: var(--secondary); margin-bottom: 0.4rem;">Client</h3>
+          <p class="small-text" style="margin: 0;">Azure OpenAI Responses API</p>
+        </div>
+        <!-- Server (placeholder) -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; opacity: 0.18; border: 2px dashed oklch(0.82 0.02 280);"></div>
+      </div>
+    </div>
+
+    <!-- 16c: Parts of MCP — Host + Client + Server -->
+    <div class="slide" data-slide="16">
+      <div class="badge mb-1">Architecture</div>
+      <h2>Parts of MCP</h2>
+      <div style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; margin-top: 2rem; max-width: 1100px;">
+        <!-- Host -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--primary); background: oklch(0.52 0.24 290 / 0.06);">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.52 0.24 290)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="14" width="60" height="44" rx="6"/>
+            <path d="M22 30 h36 M22 40 h28 M22 50 h20"/>
+            <path d="M30 58 v8 M50 58 v8 M22 66 h36"/>
+          </svg>
+          <h3 style="color: var(--primary); margin-bottom: 0.4rem;">Host</h3>
+          <p class="small-text" style="margin: 0;">Our app &mdash; the Zava sales agent chat UI</p>
+        </div>
+        <!-- Client -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--secondary); background: oklch(0.68 0.16 340 / 0.06);">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.68 0.16 340)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 50 a14 14 0 1 1 4 -27 a18 18 0 0 1 34 6 a12 12 0 0 1 -2 23 z"/>
+            <path d="M40 30 l-6 12 h8 l-4 12" stroke="oklch(0.68 0.16 340)" fill="none"/>
+          </svg>
+          <h3 style="color: var(--secondary); margin-bottom: 0.4rem;">Client</h3>
+          <p class="small-text" style="margin: 0;">Azure OpenAI Responses API</p>
+        </div>
+        <!-- Server (active) -->
+        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid oklch(0.50 0.13 70); background: oklch(0.78 0.14 70 / 0.08);">
+          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.50 0.13 70)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="40" cy="18" rx="24" ry="8"/>
+            <path d="M16 18 v18 a24 8 0 0 0 48 0 v-18"/>
+            <path d="M16 36 v18 a24 8 0 0 0 48 0 v-18"/>
+            <path d="M16 54 v8 a24 8 0 0 0 48 0 v-8"/>
+          </svg>
+          <h3 style="color: oklch(0.50 0.13 70); margin-bottom: 0.4rem;">Server</h3>
+          <p class="small-text" style="margin: 0;">Postgres (pgvector + RLS)</p>
+        </div>
+      </div>
+    </div>
     <div class="slide" data-slide="17">
       <div class="badge mb-1">Context · MCP &amp; Postgres</div>
       <h2 style="margin-bottom: 1rem;">The MCP tools we expose</h2>
