@@ -519,43 +519,13 @@
       <div class="sparkle">&#10022; &middot; &#10022; &middot; &#10022;</div>
     </div>
 
-    <!-- 9: App overview -->
-    <div class="slide" data-slide="9">
-      <h2>Meet Zava</h2>
-      <p class="subtitle center" style="max-width: 900px; margin: 0 auto 1.5rem; font-size: 1.05rem;">
-        A multi-step LangChain v1 sales-conversation agent that uses the Azure OpenAI Responses API,
-        an MCP server with Postgres + pgvector for grounding in catalog, and action with CRM tools.
-      </p>
-      <div style="display: flex; justify-content: center;">
-        <img src="app-image.png" alt="Zava sales agent app screenshot"
-             style="height: 55vh; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);" />
-      </div>
-    </div>
-
     <!-- 10: Architecture -->
     <div class="slide" data-slide="10">
       <h2>Architecture</h2>
-      <div class="arch">
-        <div class="node primary">
-          <strong>Agent container</strong>
-          <small>LangChain · Responses API · chat UI</small>
-        </div>
-        <div class="node secondary">
-          <strong>MCP server container</strong>
-          <small>FastMCP · streamable HTTP · 4 tools</small>
-        </div>
-        <div class="node accent">
-          <strong>Azure OpenAI</strong>
-          <small>GPT-5-mini · text-embedding-3-small</small>
-        </div>
-        <div class="node accent">
-          <strong>PostgreSQL</strong>
-          <small>pgvector · Row Level Security</small>
-        </div>
+      <div style="display: flex; justify-content: center;">
+        <img src="app-architecture.png" alt="App architecture diagram"
+             style="height: 65vh; width: auto; max-width: 100%; object-fit: contain;" />
       </div>
-      <p class="small-text mt-2">
-        Two Container Apps. <strong>Entra ID</strong> Managed Identity end-to-end &mdash; no API keys.
-      </p>
     </div>
 
     <!-- 11: Section — What is an agent -->
