@@ -625,37 +625,8 @@
       <div class="transition-sub">Three steps that repeat until the model decides it's finished.</div>
     </div>
 
-    <!-- 14: Section — MCP -->
-    <div class="slide slide-section" data-slide="14">
-      <h2>What is MCP?</h2>
-      <p class="subtitle center">Model Context Protocol</p>
-      <div class="sparkle">&#10022; &middot; &#10022; &middot; &#10022;</div>
-    </div>
-
-    <!-- 15: MCP excalidraw -->
-    <div class="slide" data-slide="15">
-      <h2>USB-C for LLM tools</h2>
-      <div class="excali">
-        <div class="excali-row">
-          <div class="excali-box">🤖 Agent<br/><small style="font-weight: 400;">(LangChain)</small></div>
-          <div class="excali-arrow">⇄</div>
-          <div class="excali-box b2">📦 MCP server<br/><small style="font-weight: 400;">(FastMCP)</small></div>
-          <div class="excali-arrow">⇄</div>
-          <div class="excali-box b3">🗄️ Postgres<br/><small style="font-weight: 400;">(pgvector + RLS)</small></div>
-        </div>
-        <p style="text-align: center; margin-top: 1.2rem; font-size: 1rem; color: oklch(0.40 0.02 280);">
-          One protocol. Any model can call your tools. You don't rewrite the integration per framework.
-        </p>
-      </div>
-      <ul class="mt-2" style="max-width: 820px;">
-        <li><strong>Tools</strong> &mdash; functions the model can <em>call</em></li>
-        <li><strong>Resources</strong> &mdash; read-only context the model can <em>fetch</em></li>
-        <li><strong>Prompts</strong> &mdash; reusable templates the host can <em>offer</em></li>
-      </ul>
-    </div>
-
-    <!-- 16: Transition — Gather Context highlighted -->
-    <div class="slide transition-slide" data-slide="16">
+    <!-- 14: Transition — Gather Context highlighted (moved up) -->
+    <div class="slide transition-slide" data-slide="14">
       <svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" style="max-width: 90%; height: auto; margin-bottom: 1.5rem;">
         <rect width="900" height="320" rx="12" fill="oklch(0.99 0.004 280)"/>
         <g class="loop-faded">
@@ -686,6 +657,31 @@
       </svg>
       <div class="transition-label">Gather Context</div>
       <div class="transition-sub">MCP tools that pull schema, semantic matches, and the right rows for this user.</div>
+    </div>
+
+    <!-- 15: Section — MCP -->
+    <div class="slide slide-section" data-slide="15">
+      <h2>What is MCP?</h2>
+      <p class="subtitle center">Model Context Protocol</p>
+      <div class="sparkle">&#10022; &middot; &#10022; &middot; &#10022;</div>
+    </div>
+
+    <!-- 16: MCP definition (Core Concept card) -->
+    <div class="slide" data-slide="16">
+      <div class="center" style="max-width: 800px;">
+        <div class="badge mb-1">Core Concept</div>
+        <h2>What is MCP?</h2>
+        <p style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem;">In one sentence:</p>
+        <div class="card" style="padding: 2.5rem 3rem; text-align: center;">
+          <p style="font-size: 1.5rem; line-height: 1.6; font-weight: 500; color: var(--fg);">
+            <strong style="color: var(--primary);">MCP</strong> (Model Context Protocol) is an
+            <strong style="color: var(--secondary);">open-source standard</strong> for connecting
+            <strong style="color: var(--primary);">AI applications</strong> to
+            <strong style="color: var(--secondary);">external systems</strong>.
+          </p>
+        </div>
+        <div class="sparkle mt-2">&#10022; &middot; &#10022; &middot; &#10022; &middot; &#10022; &middot; &#10022;</div>
+      </div>
     </div>
 
     <!-- 17: Context — MCP + Postgres -->
