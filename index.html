@@ -522,21 +522,13 @@
     <!-- 9: App overview -->
     <div class="slide" data-slide="9">
       <h2>Meet Zava</h2>
-      <div class="card max-w-1000 w-full">
-        <p>Zava is a (fictional) DIY retailer. Customers and store managers chat with the agent to:</p>
-        <ul class="mt-1">
-          <li>Find products by feature, use case, or vague description</li>
-          <li>Analyse sales in plain English &mdash; "top sellers last quarter for store 7"</li>
-          <li>Get charts, summaries, and grounded citations back</li>
-        </ul>
-        <div class="pill-row mt-2">
-          <span class="pill">LangChain</span>
-          <span class="pill">FastMCP</span>
-          <span class="pill">Azure OpenAI · GPT-5-mini</span>
-          <span class="pill">PostgreSQL + pgvector</span>
-          <span class="pill">Responses API</span>
-        </div>
-        <p class="small-text mt-2">↳ insert app screenshot here</p>
+      <p class="subtitle center" style="max-width: 900px; margin: 0 auto 1.5rem; font-size: 1.05rem;">
+        A multi-step LangChain v1 sales-conversation agent that uses the Azure OpenAI Responses API,
+        an MCP server with Postgres + pgvector for grounding in catalog, and action with CRM tools.
+      </p>
+      <div style="display: flex; justify-content: center;">
+        <img src="app-image.png" alt="Zava sales agent app screenshot"
+             style="height: 55vh; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);" />
       </div>
     </div>
 
