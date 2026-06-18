@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building Effective Agents with MCP and LangChain — Marlene Mhangami</title>
+  <title>Building and Scaling LangChain/Langraph Agents on Azure — Marlene Mhangami</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -418,8 +418,8 @@
     <!-- 1: Title -->
     <div class="slide slide-title active" data-slide="1">
       <div class="center">
-        <span class="badge">European Cloud Summit</span>
-        <h1 class="mt-2">Building Effective Agents<br/>with MCP and LangChain</h1>
+        <span class="badge">Agentic Dev Partner Academy</span>
+        <h1 class="mt-2">Building and Scaling<br/>LangChain/Langraph Agents on Azure</h1>
         <p class="small-text mt-2">Marlene Mhangami &middot; Senior Developer Advocate &middot; Microsoft</p>
         <div class="social-links">
           <a href="https://twitter.com/marlene_zw" target="_blank">@marlene_zw</a>
@@ -531,26 +531,13 @@
       <p class="small-text mt-2">Production-grade agents, on top of the same primitives we'll use today.</p>
     </div>
 
-    <!-- 8: The app we'll build -->
-    <div class="slide" data-slide="8">
-      <h2>The app we'll build</h2>
-      <p class="subtitle center" style="max-width: 900px; margin: 0 auto 1.5rem; font-size: 1.05rem;">
-        A multi-step LangChain v1 sales-conversation agent that uses the Azure OpenAI Responses API,
-        an MCP server with Postgres + pgvector for grounding in catalog, and action with CRM tools.
+    <!-- 9: Section — Local to Production (transition) -->
+    <div class="slide slide-section" data-slide="9">
+      <h2>Local &rarr; Production</h2>
+      <p class="subtitle center" style="max-width: 800px; margin: 1rem auto 0; font-size: 1.1rem;">
+        Taking your agents from local to production.
       </p>
-      <div style="display: flex; justify-content: center;">
-        <img src="app-image.png" alt="Zava sales agent app screenshot"
-             style="height: 55vh; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);" />
-      </div>
-    </div>
-
-    <!-- 10: Architecture -->
-    <div class="slide" data-slide="10">
-      <h2>Architecture</h2>
-      <div style="display: flex; justify-content: center;">
-        <img src="app-architecture.png" alt="App architecture diagram"
-             style="height: 65vh; width: auto; max-width: 100%; object-fit: contain;" />
-      </div>
+      <div class="sparkle">&#10022; &middot; &#10022; &middot; &#10022;</div>
     </div>
 
     <!-- 11: Section — What is an agent -->
@@ -625,419 +612,205 @@
       <div class="transition-sub">Three steps that repeat until the model decides it's finished.</div>
     </div>
 
-    <!-- 14: Transition — Gather Context highlighted (moved up) -->
-    <div class="slide transition-slide" data-slide="14">
-      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" style="max-width: 90%; height: auto; margin-bottom: 1.5rem;">
-        <rect width="900" height="320" rx="12" fill="oklch(0.99 0.004 280)"/>
-        <g class="loop-faded">
-          <rect x="20" y="115" width="130" height="60" rx="10" fill="oklch(0.91 0.015 280)"/>
-          <text x="85" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="oklch(0.22 0.02 280)">User query</text>
-          <rect x="210" y="55" width="560" height="180" rx="14" fill="none" stroke="oklch(0.82 0.02 280)" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <path d="M150 145 L210 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="200,140 212,145 200,150" fill="oklch(0.50 0.02 280)"/>
-          <path d="M370 145 L400 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="395,140 407,145 395,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="405" y="115" width="140" height="60" rx="10" fill="oklch(0.68 0.16 340 / 0.12)" stroke="oklch(0.68 0.16 340 / 0.5)" stroke-width="2"/>
-          <text x="475" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.45 0.12 340)">Take action</text>
-          <path d="M545 145 L575 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="570,140 582,145 570,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="580" y="115" width="140" height="60" rx="10" fill="oklch(0.78 0.14 70 / 0.12)" stroke="oklch(0.78 0.14 70 / 0.5)" stroke-width="2"/>
-          <text x="650" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.50 0.13 70)">Validate</text>
-          <path d="M770 145 L810 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="800,140 812,145 800,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="815" y="115" width="65" height="60" rx="10" fill="oklch(0.91 0.015 280)"/>
-          <text x="847" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="oklch(0.22 0.02 280)">Done</text>
+    <!-- 13a: What we'll cover (demo overview) -->
+    <div class="slide" data-slide="13a">
+      <h2>What we'll cover</h2>
+      <p class="small-text" style="margin-top: -0.5rem; margin-bottom: 1.25rem;">Walking through the journey, using our demo agent <em>Ada</em>.</p>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="40 50 840 285" preserveAspectRatio="xMidYMid meet" style="width: 100%; max-width: 1200px; height: auto;">
+        <defs>
+          <marker id="demoArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 Z" fill="oklch(0.55 0.04 280)"/>
+          </marker>
+        </defs>
+
+        <!-- Step 1 -->
+        <g>
+          <circle cx="120" cy="110" r="48" fill="oklch(0.52 0.24 290 / 0.12)" stroke="oklch(0.52 0.24 290)" stroke-width="2.5"/>
+          <text x="120" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="oklch(0.40 0.20 290)">1</text>
+          <text x="120" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.22 0.02 280)">Build local agent</text>
+          <text x="120" y="215" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="oklch(0.45 0.02 280)">Foundry + LangChain</text>
         </g>
-        <!-- Highlighted: Gather context -->
-        <g class="loop-highlight">
-          <rect x="220" y="100" width="160" height="90" rx="12" fill="oklch(0.52 0.24 290 / 0.15)" stroke="oklch(0.52 0.24 290)" stroke-width="3"/>
-          <text x="300" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="oklch(0.35 0.15 290)">Gather</text>
-          <text x="300" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="oklch(0.35 0.15 290)">context</text>
+        <line x1="173" y1="110" x2="237" y2="110" stroke="oklch(0.55 0.04 280)" stroke-width="2" marker-end="url(#demoArrow)"/>
+
+        <!-- Step 2 -->
+        <g>
+          <circle cx="290" cy="110" r="48" fill="oklch(0.68 0.16 340 / 0.12)" stroke="oklch(0.68 0.16 340)" stroke-width="2.5"/>
+          <text x="290" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="oklch(0.45 0.14 340)">2</text>
+          <text x="290" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.22 0.02 280)">Context, tools &amp; safety</text>
+          <text x="290" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="oklch(0.45 0.02 280)">Foundry Toolbox +</text>
+          <text x="290" y="226" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="oklch(0.45 0.02 280)">Content Safety middleware</text>
         </g>
+        <line x1="343" y1="110" x2="407" y2="110" stroke="oklch(0.55 0.04 280)" stroke-width="2" marker-end="url(#demoArrow)"/>
+
+        <!-- Step 3 -->
+        <g>
+          <circle cx="460" cy="110" r="48" fill="oklch(0.78 0.14 70 / 0.15)" stroke="oklch(0.78 0.14 70)" stroke-width="2.5"/>
+          <text x="460" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="oklch(0.50 0.13 70)">3</text>
+          <text x="460" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.22 0.02 280)">Validate outputs</text>
+          <text x="460" y="215" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="oklch(0.45 0.02 280)">Evals</text>
+        </g>
+        <line x1="513" y1="110" x2="577" y2="110" stroke="oklch(0.55 0.04 280)" stroke-width="2" marker-end="url(#demoArrow)"/>
+
+        <!-- Step 4 -->
+        <g>
+          <circle cx="630" cy="110" r="48" fill="oklch(0.55 0.18 150 / 0.12)" stroke="oklch(0.55 0.18 150)" stroke-width="2.5"/>
+          <text x="630" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="oklch(0.40 0.15 150)">4</text>
+          <text x="630" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.22 0.02 280)">Monitor in production</text>
+          <text x="630" y="215" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="oklch(0.45 0.02 280)">Foundry Portal</text>
+        </g>
+        <line x1="683" y1="110" x2="747" y2="110" stroke="oklch(0.55 0.04 280)" stroke-width="2" marker-end="url(#demoArrow)"/>
+
+        <!-- Step 5 -->
+        <g>
+          <circle cx="800" cy="110" r="48" fill="oklch(0.62 0.18 220 / 0.14)" stroke="oklch(0.55 0.18 220)" stroke-width="2.5"/>
+          <text x="800" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="oklch(0.40 0.16 220)">5</text>
+          <text x="800" y="195" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.22 0.02 280)">Ship to users</text>
+          <text x="800" y="215" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="oklch(0.45 0.02 280)">Teams, Outlook &amp; more</text>
+        </g>
+
+        <!-- Track line under steps -->
+        <line x1="80" y1="290" x2="840" y2="290" stroke="oklch(0.82 0.02 280)" stroke-width="1.5" stroke-dasharray="4 6"/>
+        <text x="80" y="318" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="oklch(0.50 0.02 280)">Local</text>
+        <text x="840" y="318" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="oklch(0.50 0.02 280)">Production</text>
       </svg>
-      <div class="transition-label">Gather Context</div>
-      <div class="transition-sub">MCP tools that pull schema, semantic matches, and the right rows for this user.</div>
     </div>
 
-    <!-- 15: Section — MCP -->
-    <div class="slide slide-section" data-slide="15">
-      <h2>What is MCP?</h2>
-      <p class="subtitle center">Model Context Protocol</p>
+    <!-- 13b: Section — Building a local agent with LangChain and Foundry -->
+    <div class="slide slide-section" data-slide="13b">
+      <h2>Building a local agent with<br/>LangChain and Foundry</h2>
       <div class="sparkle">&#10022; &middot; &#10022; &middot; &#10022;</div>
     </div>
 
-    <!-- 16: MCP definition (Core Concept card) -->
-    <div class="slide" data-slide="16">
-      <div class="center" style="max-width: 800px;">
-        <div class="badge mb-1">Core Concept</div>
-        <h2>What is MCP?</h2>
-        <p style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem;">In one sentence:</p>
-        <div class="card" style="padding: 2.5rem 3rem; text-align: center;">
-          <p style="font-size: 1.5rem; line-height: 1.6; font-weight: 500; color: var(--fg);">
-            <strong style="color: var(--primary);">MCP</strong> (Model Context Protocol) is an
-            <strong style="color: var(--secondary);">open-source standard</strong> for connecting
-            <strong style="color: var(--primary);">AI applications</strong> to
-            <strong style="color: var(--secondary);">external systems</strong>.
-          </p>
-        </div>
-        <div class="sparkle mt-2">&#10022; &middot; &#10022; &middot; &#10022; &middot; &#10022; &middot; &#10022;</div>
-      </div>
-    </div>
-
-    <!-- 16a: Parts of MCP — Host -->
-    <div class="slide" data-slide="16">
-      <div class="badge mb-1">Architecture</div>
-      <h2>Parts of MCP</h2>
-      <div style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; margin-top: 2rem; max-width: 1100px;">
-        <!-- Host (active) -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--primary); background: oklch(0.52 0.24 290 / 0.06);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.52 0.24 290)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="10" y="14" width="60" height="44" rx="6"/>
-            <path d="M22 30 h36 M22 40 h28 M22 50 h20"/>
-            <path d="M30 58 v8 M50 58 v8 M22 66 h36"/>
-          </svg>
-          <h3 style="color: var(--primary); margin-bottom: 0.4rem;">Host</h3>
-          <p class="small-text" style="margin: 0;">Our app &mdash; the Zava sales agent chat UI</p>
-        </div>
-        <!-- Client (placeholder) -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; opacity: 0.18; border: 2px dashed oklch(0.82 0.02 280);"></div>
-        <!-- Server (placeholder) -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; opacity: 0.18; border: 2px dashed oklch(0.82 0.02 280);"></div>
-      </div>
-    </div>
-
-    <!-- 16b: Parts of MCP — Host + Client -->
-    <div class="slide" data-slide="16">
-      <div class="badge mb-1">Architecture</div>
-      <h2>Parts of MCP</h2>
-      <div style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; margin-top: 2rem; max-width: 1100px;">
-        <!-- Host -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--primary); background: oklch(0.52 0.24 290 / 0.06);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.52 0.24 290)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="10" y="14" width="60" height="44" rx="6"/>
-            <path d="M22 30 h36 M22 40 h28 M22 50 h20"/>
-            <path d="M30 58 v8 M50 58 v8 M22 66 h36"/>
-          </svg>
-          <h3 style="color: var(--primary); margin-bottom: 0.4rem;">Host</h3>
-          <p class="small-text" style="margin: 0;">Our app &mdash; the Zava sales agent chat UI</p>
-        </div>
-        <!-- Client (active) -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--secondary); background: oklch(0.68 0.16 340 / 0.06);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.68 0.16 340)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 50 a14 14 0 1 1 4 -27 a18 18 0 0 1 34 6 a12 12 0 0 1 -2 23 z"/>
-            <path d="M40 30 l-6 12 h8 l-4 12" stroke="oklch(0.68 0.16 340)" fill="none"/>
-          </svg>
-          <h3 style="color: var(--secondary); margin-bottom: 0.4rem;">Client</h3>
-          <p class="small-text" style="margin: 0;">Azure OpenAI Responses API</p>
-        </div>
-        <!-- Server (placeholder) -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; opacity: 0.18; border: 2px dashed oklch(0.82 0.02 280);"></div>
-      </div>
-    </div>
-
-    <!-- 16c: Parts of MCP — Host + Client + Server -->
-    <div class="slide" data-slide="16">
-      <div class="badge mb-1">Architecture</div>
-      <h2>Parts of MCP</h2>
-      <div style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; margin-top: 2rem; max-width: 1100px;">
-        <!-- Host -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--primary); background: oklch(0.52 0.24 290 / 0.06);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.52 0.24 290)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="10" y="14" width="60" height="44" rx="6"/>
-            <path d="M22 30 h36 M22 40 h28 M22 50 h20"/>
-            <path d="M30 58 v8 M50 58 v8 M22 66 h36"/>
-          </svg>
-          <h3 style="color: var(--primary); margin-bottom: 0.4rem;">Host</h3>
-          <p class="small-text" style="margin: 0;">Our app &mdash; the Zava sales agent chat UI</p>
-        </div>
-        <!-- Client -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid var(--secondary); background: oklch(0.68 0.16 340 / 0.06);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.68 0.16 340)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 50 a14 14 0 1 1 4 -27 a18 18 0 0 1 34 6 a12 12 0 0 1 -2 23 z"/>
-            <path d="M40 30 l-6 12 h8 l-4 12" stroke="oklch(0.68 0.16 340)" fill="none"/>
-          </svg>
-          <h3 style="color: var(--secondary); margin-bottom: 0.4rem;">Client</h3>
-          <p class="small-text" style="margin: 0;">Azure OpenAI Responses API</p>
-        </div>
-        <!-- Server (active) -->
-        <div class="card" style="flex: 1; padding: 2rem 1.5rem; text-align: center; border: 2px solid oklch(0.50 0.13 70); background: oklch(0.78 0.14 70 / 0.08);">
-          <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto 1rem; display: block;" fill="none" stroke="oklch(0.50 0.13 70)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="40" cy="18" rx="24" ry="8"/>
-            <path d="M16 18 v18 a24 8 0 0 0 48 0 v-18"/>
-            <path d="M16 36 v18 a24 8 0 0 0 48 0 v-18"/>
-            <path d="M16 54 v8 a24 8 0 0 0 48 0 v-8"/>
-          </svg>
-          <h3 style="color: oklch(0.50 0.13 70); margin-bottom: 0.4rem;">Server</h3>
-          <p class="small-text" style="margin: 0;">Postgres (pgvector + RLS)</p>
-        </div>
-      </div>
-    </div>
-    <div class="slide" data-slide="17">
-      <div class="badge mb-1">Context · MCP &amp; Postgres</div>
-      <h2 style="margin-bottom: 1rem;">The MCP tools we expose</h2>
-      <div class="demo-card">
-<pre><code>@mcp.tool() async def get_table_schemas(ctx): ...
-@mcp.tool() async def execute_sales_query(ctx, query: str): ...
-@mcp.tool() async def semantic_search_products(ctx, query, k=5): ...
-@mcp.tool() def     get_current_utc_date(): ...
-</code></pre>
-        <ul class="mt-1">
-          <li><strong>schemas</strong> → ground SQL in real columns, not hallucinated ones</li>
-          <li><strong>semantic search (pgvector)</strong> → resolve "outdoor lights" to real SKUs</li>
-          <li><strong>execute_sales_query</strong> → SELECT-only, scoped by RLS</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 18: Security — RLS -->
-    <div class="slide" data-slide="18">
-      <div class="badge mb-1">Security · Postgres RLS</div>
-      <h2 style="margin-bottom: 1rem;">Row Level Security and Identity-Based Protection</h2>
-      <div class="demo-card">
-<pre><code>ALTER TABLE retail.orders ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY store_isolation ON retail.orders
-  USING (store_id = current_setting('app.store_id')::uuid);
-
--- per request, the MCP server sets the identity:
-SET LOCAL app.store_id = '&lt;store-uuid-of-caller&gt;';
-SELECT * FROM retail.orders;   -- 👈 only THIS store's rows
-</code></pre>
-        <p class="small-text mt-1">
-          Even if the LLM writes <code>SELECT *</code>, it only sees rows it's allowed to see.
-          MCP makes tool sharing easy &mdash; <strong>auth has to live somewhere safer than the prompt.</strong>
-        </p>
-      </div>
-    </div>
-
-    <!-- 19: Context engineering — refine / summarize / validate -->
-    <div class="slide" data-slide="19">
-      <div class="badge mb-1">Context engineering</div>
-      <h2 style="margin-bottom: 1rem;">Three helpers around every tool call</h2>
-      <div class="three-col">
-        <div class="card">
-          <h3>🔎 refine_query</h3>
-          <p>Rewrite the user's vague question into a tool-shaped one before searching.</p>
-        </div>
-        <div class="card">
-          <h3>🧊 summarization</h3>
-          <p>Compress long tool outputs so we don't blow up the context window.</p>
-        </div>
-        <div class="card">
-          <h3>✅ validate_response</h3>
-          <p>Check the answer is grounded in the data we actually retrieved.</p>
-        </div>
-      </div>
-      <p class="small-text mt-2">More tokens ≠ better answers. Curate what the model sees.</p>
-    </div>
-
-    <!-- 20: LangChain code: gathering context -->
-    <div class="slide" data-slide="20">
-      <h2>What this looks like in LangChain</h2>
+    <!-- 13c: LangChain agent connected to Foundry (code) -->
+    <div class="slide" data-slide="13c">
+      <h2>LangChain Agent with Foundry Models</h2>
       <div style="width: 100%; max-width: 1100px;">
-<pre><code>from langchain.agents import create_agent
+<pre style="background: oklch(0.985 0.005 280); color: oklch(0.22 0.02 280); border: 1px solid var(--border); padding: 1.75rem 2rem; line-height: 1.9; font-size: 1.05rem; box-shadow: 0 8px 24px oklch(0.52 0.24 290 / 0.08);"><code>import os
+from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
-from langchain_mcp_adapters.client import MultiServerMCPClient
 
-mcp_client = MultiServerMCPClient({
-    "zava-sales": {"url": "http://localhost:8000/mcp",
-                   "transport": "streamable_http"},
-})
-mcp_tools = await mcp_client.get_tools()   # 👈 tools come from MCP
+PROJECT_ENDPOINT = os.environ["AZURE_AI_PROJECT_ENDPOINT"]
+API_KEY = os.environ["AZURE_AI_API_KEY"]
 
-model = ChatOpenAI(model="gpt-5-mini", use_responses_api=True)
+llm = ChatOpenAI(
+    base_url=f"{PROJECT_ENDPOINT.rstrip('/')}/openai/v1",
+    api_key=API_KEY,
+    model="gpt-5-mini",
+    use_responses_api=True,
+    streaming=True,
+)
 
-agent = create_agent(
-    model=model,
-    tools=mcp_tools,
-    prompt=system_prompt,
+ada_agent = create_agent(
+    model=llm,
+    system_prompt=SYSTEM_PROMPT,
 )
 </code></pre>
       </div>
-    </div>
-
-    <!-- 21: Transition — Take Action highlighted -->
-    <div class="slide transition-slide" data-slide="21">
-      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" style="max-width: 90%; height: auto; margin-bottom: 1.5rem;">
-        <rect width="900" height="320" rx="12" fill="oklch(0.99 0.004 280)"/>
-        <g class="loop-faded">
-          <rect x="20" y="115" width="130" height="60" rx="10" fill="oklch(0.91 0.015 280)"/>
-          <text x="85" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="oklch(0.22 0.02 280)">User query</text>
-          <rect x="210" y="55" width="560" height="180" rx="14" fill="none" stroke="oklch(0.82 0.02 280)" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <path d="M150 145 L210 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="200,140 212,145 200,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="230" y="115" width="140" height="60" rx="10" fill="oklch(0.52 0.24 290 / 0.10)" stroke="oklch(0.52 0.24 290 / 0.4)" stroke-width="2"/>
-          <text x="300" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.35 0.15 290)">Gather context</text>
-          <path d="M370 145 L400 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="395,140 407,145 395,150" fill="oklch(0.50 0.02 280)"/>
-          <path d="M545 145 L575 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="570,140 582,145 570,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="580" y="115" width="140" height="60" rx="10" fill="oklch(0.78 0.14 70 / 0.12)" stroke="oklch(0.78 0.14 70 / 0.5)" stroke-width="2"/>
-          <text x="650" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.50 0.13 70)">Validate</text>
-          <path d="M770 145 L810 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="800,140 812,145 800,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="815" y="115" width="65" height="60" rx="10" fill="oklch(0.91 0.015 280)"/>
-          <text x="847" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="oklch(0.22 0.02 280)">Done</text>
-        </g>
-        <!-- Highlighted: Take action -->
-        <g class="loop-highlight">
-          <rect x="395" y="100" width="160" height="90" rx="12" fill="oklch(0.68 0.16 340 / 0.15)" stroke="oklch(0.68 0.16 340)" stroke-width="3"/>
-          <text x="475" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="oklch(0.45 0.12 340)">Take action</text>
-          <text x="475" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="oklch(0.55 0.08 340)">(tools)</text>
-        </g>
-      </svg>
-      <div class="transition-label">Take Action</div>
-      <div class="transition-sub">Custom MCP tools, plus built-in tools from the OpenAI Responses API.</div>
-    </div>
-
-    <!-- 22: Tools: code interpreter, web search -->
-    <div class="slide" data-slide="22">
-      <div class="badge mb-1">Take action · Tools</div>
-      <h2 style="margin-bottom: 1rem;">Tools you don't have to build</h2>
-      <div class="three-col">
-        <div class="card">
-          <h3>🐍 Code interpreter</h3>
-          <p>Run Python on tool results &mdash; pivot tables, stats, plots.</p>
-        </div>
-        <div class="card">
-          <h3>🌐 Web search</h3>
-          <p>Look up live pricing, competitors, news.</p>
-        </div>
-        <div class="card">
-          <h3>🖼️ Image generation</h3>
-          <p>"Show me a chart of sales by category, in pastel."</p>
-        </div>
-      </div>
-      <p class="small-text mt-2">↳ insert VS Code screenshots of these in action</p>
-    </div>
-
-    <!-- 23: LangChain code: built-in tools -->
-    <div class="slide" data-slide="23">
-      <h2>Built-in tools, in code</h2>
-      <div style="width: 100%; max-width: 1100px;">
-<pre><code>tools = mcp_tools + [
-    {"type": "code_interpreter", "container": {"type": "auto"}},
-    {"type": "web_search"},
-    {"type": "image_generation"},
-]
-
-agent = create_agent(model=model, tools=tools, prompt=system_prompt)
-</code></pre>
-        <p class="small-text mt-1">
-          Built-ins run on OpenAI's side. MCP tools run on yours. The model picks &mdash;
-          one agent, every superpower.
-        </p>
-      </div>
-    </div>
-
-    <!-- 24: apply_step_config -->
-    <div class="slide" data-slide="24">
-      <div class="badge mb-1">apply_step_config</div>
-      <h2 style="margin-bottom: 1rem;">Different steps, different prompts &amp; tools</h2>
-      <div class="demo-card">
-        <p>One mega-prompt with every tool is a recipe for wrong answers. Split the loop:</p>
-<pre><code>agent = create_agent(model, tools, prompt=base_prompt)
-
-agent = agent.apply_step_config({
-    "refine":   {"prompt": refine_prompt,   "tools": []},
-    "retrieve": {"prompt": retrieve_prompt, "tools": [semantic_search,
-                                                      get_table_schemas]},
-    "answer":   {"prompt": answer_prompt,   "tools": [execute_sales_query,
-                                                      code_interpreter]},
-    "verify":   {"prompt": verify_prompt,   "tools": []},
-})
-</code></pre>
-        <ul class="mt-1">
-          <li>Each step only sees the tools it actually needs</li>
-          <li>Each step has a tighter, focused system prompt</li>
-          <li>Easier to evaluate &mdash; you can score each step independently</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 25: Transition — Validate highlighted -->
-    <div class="slide transition-slide" data-slide="25">
-      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" style="max-width: 90%; height: auto; margin-bottom: 1.5rem;">
-        <rect width="900" height="320" rx="12" fill="oklch(0.99 0.004 280)"/>
-        <g class="loop-faded">
-          <rect x="20" y="115" width="130" height="60" rx="10" fill="oklch(0.91 0.015 280)"/>
-          <text x="85" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="oklch(0.22 0.02 280)">User query</text>
-          <rect x="210" y="55" width="560" height="180" rx="14" fill="none" stroke="oklch(0.82 0.02 280)" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <path d="M150 145 L210 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="200,140 212,145 200,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="230" y="115" width="140" height="60" rx="10" fill="oklch(0.52 0.24 290 / 0.10)" stroke="oklch(0.52 0.24 290 / 0.4)" stroke-width="2"/>
-          <text x="300" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.35 0.15 290)">Gather context</text>
-          <path d="M370 145 L400 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="395,140 407,145 395,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="405" y="115" width="140" height="60" rx="10" fill="oklch(0.68 0.16 340 / 0.10)" stroke="oklch(0.68 0.16 340 / 0.4)" stroke-width="2"/>
-          <text x="475" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="oklch(0.45 0.12 340)">Take action</text>
-          <path d="M545 145 L575 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="570,140 582,145 570,150" fill="oklch(0.50 0.02 280)"/>
-          <path d="M770 145 L810 145" stroke="oklch(0.50 0.02 280)" stroke-width="2"/>
-          <polygon points="800,140 812,145 800,150" fill="oklch(0.50 0.02 280)"/>
-          <rect x="815" y="115" width="65" height="60" rx="10" fill="oklch(0.91 0.015 280)"/>
-          <text x="847" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="oklch(0.22 0.02 280)">Done</text>
-        </g>
-        <!-- Highlighted: Validate -->
-        <g class="loop-highlight">
-          <rect x="570" y="100" width="160" height="90" rx="12" fill="oklch(0.78 0.14 70 / 0.18)" stroke="oklch(0.78 0.14 70)" stroke-width="3"/>
-          <text x="650" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="oklch(0.50 0.13 70)">Validate</text>
-          <text x="650" y="165" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="oklch(0.55 0.10 70)">(traces · evals)</text>
-        </g>
-      </svg>
-      <div class="transition-label">Validate</div>
-      <div class="transition-sub">Closing the loop &mdash; how do we know the agent is actually working?</div>
-    </div>
-
-    <!-- 26: Validation -->
-    <div class="slide" data-slide="26">
-      <h2 style="margin-bottom: 1rem;">How do we know it's working?</h2>
-      <div class="val-grid">
-        <div class="card">
-          <h3>📜 Traces</h3>
-          <p>Every step, every tool call &mdash; replay in LangSmith.</p>
-        </div>
-        <div class="card">
-          <h3>🧱 Grounding</h3>
-          <p>Did the answer cite real rows? Was the SQL valid?</p>
-        </div>
-        <div class="card">
-          <h3>📊 Evals</h3>
-          <p>Run a fixed test set on every change &mdash; watch regressions.</p>
-        </div>
-        <div class="card">
-          <h3>📈 Monitoring</h3>
-          <p>Sentiment, drop-off, retries &mdash; what users actually do.</p>
-        </div>
-      </div>
       <p class="small-text mt-2">
-        Tip: ask the model itself &mdash; <em>"what could go wrong with this answer?"</em> &mdash;
-        and use that to seed your eval set.
+        Install the deps first: <code>pip install langchain-openai</code>
       </p>
     </div>
 
-    <!-- 27: Resources -->
-    <div class="slide" data-slide="27">
-      <h2>Resources</h2>
-      <div class="card max-w-1000 w-full" style="text-align: left;">
-        <ul>
-          <li><a href="https://github.com/Azure-Samples/langchain-agent-python">Azure-Samples/langchain-agent-python</a> &mdash; the demo repo</li>
-          <li><a href="https://microsoft.github.io/aitour26-WRK540-unlock-your-agents-potential-with-model-context-protocol/">AI Tour WRK540</a> &mdash; longer workshop on the same idea</li>
-          <li><a href="https://python.langchain.com/">python.langchain.com</a> &mdash; LangChain docs</li>
-          <li><a href="https://docs.langchain.com/oss/python/langchain/agents">create_agent</a> &mdash; the agent primitive</li>
-          <li><a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a> &mdash; MCP spec</li>
-          <li><a href="https://platform.openai.com/docs/guides/responses">OpenAI Responses API</a></li>
-          <li><a href="https://github.com/pgvector/pgvector">pgvector</a> · <a href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html">Postgres RLS</a></li>
-          <li><a href="https://docs.smith.langchain.com/">LangSmith</a> &mdash; tracing &amp; evals</li>
-        </ul>
+    <!-- Foundry Toolbox -->
+    <div class="slide" data-slide="13d">
+      <div class="center" style="max-width: 1000px;">
+        <span class="badge">Foundry Toolbox</span>
+        <h2 class="mt-2">A curated set of tools, behind one managed endpoint.</h2>
+        <p class="subtitle mt-1" style="font-size: 1.1rem;">
+          Define your agent's tools — MCP servers, Azure AI Search, file search, code interpreter, OpenAPI actions — <strong>once</strong> in Foundry,
+          and expose them through a single <strong>MCP-compatible endpoint</strong> any agent can consume.
+        </p>
+
+        <div class="row mt-2" style="gap: 1.25rem; max-width: 950px;">
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">One endpoint</h3>
+            <p class="small-text">No per-tool SDKs, no scattered credentials — agents connect to a single MCP endpoint.</p>
+          </div>
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Governed by default</h3>
+            <p class="small-text">Foundry handles credential injection, token refresh, and enterprise policy at runtime.</p>
+          </div>
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Reusable across agents</h3>
+            <p class="small-text">Curate tools once in the portal — every agent and team can discover and reuse them.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- 28: Thank you -->
-    <div class="slide" data-slide="28">
+    <!-- Content Safety Middleware -->
+    <div class="slide" data-slide="13e">
+      <div class="center" style="max-width: 1000px;">
+        <span class="badge">Content Safety Middleware</span>
+        <h2 class="mt-2">Guardrails, without rewriting your agent.</h2>
+        <p class="subtitle mt-1" style="font-size: 1.15rem;">
+          LangChain middleware that wraps each agent step with the
+          <strong>Azure AI Content Safety</strong> API — screening user input and model output
+          before anything leaves the loop.
+        </p>
+
+        <div class="row mt-2" style="gap: 1.25rem; max-width: 950px;">
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Input + output checks</h3>
+            <p class="small-text">Scans messages for hate, violence, sexual content, and self-harm.</p>
+          </div>
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Severity thresholds</h3>
+            <p class="small-text">You set the bar per category — block, redact, or just log.</p>
+          </div>
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">One line to add</h3>
+            <p class="small-text"><code>create_agent(model, tools, middleware=[content_safety])</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Foundry Evaluations -->
+    <div class="slide" data-slide="13f">
+      <div class="center" style="max-width: 1000px;">
+        <span class="badge">Evaluations</span>
+        <h2 class="mt-2">Measure quality &amp; safety — before and after you ship.</h2>
+        <p class="subtitle mt-1" style="font-size: 1.1rem;">
+          Run your agent against test data in the <strong>Foundry portal</strong> and score outputs with
+          built-in or custom evaluators. Validate behavior pre-deployment, then monitor it in production.
+        </p>
+
+        <div class="row mt-2" style="gap: 1.25rem; max-width: 950px;">
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Quality</h3>
+            <p class="small-text">Groundedness, relevance, coherence, fluency — AI-assisted scoring with GPT.</p>
+          </div>
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Safety</h3>
+            <p class="small-text">Detect hate, violence, sexual, self-harm, jailbreak attempts and protected material.</p>
+          </div>
+          <div class="card col">
+            <h3 style="margin-bottom: 0.4rem;">Agent &amp; dataset targets</h3>
+            <p class="small-text">Evaluate full conversations, model deployments, or pre-generated outputs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo video: Ada in Teams -->
+    <div class="slide" data-slide="13g">
+      <div style="width: 100%; max-width: 1200px; display: flex; justify-content: center;">
+        <video controls preload="metadata"
+               style="max-width: 100%; max-height: 80vh; width: auto; border-radius: 12px; box-shadow: 0 12px 36px oklch(0.52 0.24 290 / 0.18);">
+          <source src="ada-teams.mov" type="video/quicktime"/>
+          <source src="ada-teams.mov" type="video/mp4"/>
+          Your browser does not support embedded video.
+        </video>
+      </div>
+    </div>
+
+    <!-- Closing: Resources -->
+    <div class="slide" data-slide="14">
       <div class="center">
-        <span class="badge">Thank you</span>
-        <h1 class="mt-2">Build something<br/>your data trusts.</h1>
+        <span class="badge">Resources</span>
+        <h1 class="mt-2"><a href="https://aka.ms/partnersummit" target="_blank" style="color: inherit;">aka.ms/partnersummit</a></h1>
         <p class="subtitle mt-1">Marlene Mhangami</p>
         <div class="social-links mt-1">
           <a href="https://twitter.com/marlene_zw" target="_blank">@marlene_zw</a>
