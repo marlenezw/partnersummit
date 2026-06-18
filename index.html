@@ -226,6 +226,22 @@
       letter-spacing: 0.04em;
       font-family: var(--font-mono);
     }
+    .resource-link {
+      position: fixed;
+      bottom: 1rem; left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      z-index: 100;
+      letter-spacing: 0.03em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: oklch(1 0 0 / 0.6);
+      backdrop-filter: blur(4px);
+    }
+    .resource-link:hover { color: var(--primary); }
     blockquote {
       border-left: 4px solid var(--secondary);
       padding: 1.2rem 1.8rem;
@@ -826,6 +842,7 @@ ada_agent = create_agent(
   <div class="progress" id="progress"></div>
   <div class="slide-num" id="slideNum">1 / 1</div>
   <div class="speaker-badge">marlene_zw</div>
+  <a class="resource-link" href="https://aka.ms/partnersummit" target="_blank" rel="noopener">aka.ms/partnersummit</a>
   <div class="keys-hint" id="keysHint">&larr; &rarr; or click to navigate</div>
 
   <script>
